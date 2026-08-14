@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PS Senior Secondary School | Class of 1996 – 30 Year Reunion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Password Gate -->
+  <div id="password-gate" class="password-gate">
+    <div class="password-card">
+      <img src="school-logo.png" alt="P.S. Senior Secondary School logo" class="crest-img">
+      <h1>Class of 1996</h1>
+      <p class="subtitle">P.S. Senior Secondary School, Chennai<br>30 Year Reunion</p>
+      <p class="hint">Enter the shared password to access the private site</p>
+      <form id="password-form">
+        <input type="password" id="password-input" placeholder="Password" autocomplete="off" required>
+        <button type="submit">Enter</button>
+      </form>
+      <p id="password-error" class="error hidden">Incorrect password. Please try again.</p>
+      <p class="note">Hint: Batch + Year (no spaces)</p>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" class="hidden">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand" onclick="showSection('home')">
+          <img src="school-logo.png" alt="P.S. Senior Secondary School" class="header-logo">
+          <div class="brand-text">
+            <span class="school">P.S. Senior Secondary</span>
+            <span class="batch">Class of 1996 · 30 Years</span>
+          </div>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" id="main-nav">
+          <a href="#" data-section="home" class="nav-link active">Home</a>
+          <a href="#" data-section="register" class="nav-link">Register</a>
+          <a href="#" data-section="vote" class="nav-link">Vote</a>
+          <a href="#" data-section="memories" class="nav-link">Memories</a>
+          <a href="#" data-section="volunteers" class="nav-link">Volunteers</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section id="section-home" class="section active">
+        <div class="hero">
+          <div class="hero-content">
+            <p class="eyebrow">Mylapore, Chennai · December 2026</p>
+            <h1>Celebrating 30 Years</h1>
+            <p class="lead">A private gathering for the students of the Batch of 1996 from P.S. Senior Secondary School.</p>
+            <div class="hero-actions">
+              <button class="btn primary" onclick="showSection('register')">Nominate Yourself</button>
+              <button class="btn secondary" onclick="showSection('vote')">Cast Your Votes</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-bar">
+          <div class="stat">
+            <span class="stat-num" id="stat-registered">0</span>
+            <span class="stat-label">Registered</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="stat-inperson">0</span>
+            <span class="stat-label">In Person</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="stat-virtual">0</span>
+            <span class="stat-label">Virtual</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="stat-memories">0</span>
+            <span class="stat-label">Memories</span>
+          </div>
+        </div>
+
+        <div class="container narrow">
+          <div class="card info-card">
+            <h2>About the Reunion</h2>
+            <p>Three decades after we walked the corridors of P.S. Senior Secondary School, it’s time to reconnect. Whether you can join us in Chennai or from across the world, this site is our shared space to plan, vote, share memories, and volunteer.</p>
+            <ul class="checklist">
+              <li>Register your participation (in-person or virtual)</li>
+              <li>Vote on preferred weekend in December 2026 (cutoff 30 Sep 2026)</li>
+              <li>Vote on evening format – resort dinner/party or short ocean cruise</li>
+              <li>Share a quick memory and a photo for the Class Collage</li>
+              <li>Step up as a volunteer for Morning, Evening, or Treasurer roles</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- REGISTER -->
+      <section id="section-register" class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Nominate Your Participation</h2>
+            <p>Let us know if you’ll join in person or virtually. Your details stay private to this group.</p>
+          </div>
+
+          <div class="grid-2">
+            <form id="register-form" class="card form-card">
+              <div class="form-group">
+                <label for="reg-name">Full Name *</label>
+                <input type="text" id="reg-name" required placeholder="As you were known in school">
+              </div>
+              <div class="form-group">
+                <label for="reg-email">Email *</label>
+                <input type="email" id="reg-email" required placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label for="reg-phone">Phone / WhatsApp (optional)</label>
+                <input type="tel" id="reg-phone" placeholder="+91 ...">
+              </div>
+              <div class="form-group">
+                <label>Participation *</label>
+                <div class="radio-group">
+                  <label class="radio">
+                    <input type="radio" name="participation" value="in-person" required>
+                    <span>In Person (Chennai)</span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="participation" value="virtual">
+                    <span>Virtual / Online</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="reg-notes">Any notes (optional)</label>
+                <textarea id="reg-notes" rows="2" placeholder="Dietary needs, travel plans, etc."></textarea>
+              </div>
+              <button type="submit" class="btn primary full">Submit Nomination</button>
+              <p id="reg-success" class="success hidden">Thank you! You are registered.</p>
+            </form>
+
+            <div class="card">
+              <h3>Registered So Far</h3>
+              <div id="participants-list" class="participants-list">
+                <p class="muted">No one has registered yet. Be the first!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VOTE -->
+      <section id="section-vote" class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Vote on Date & Location</h2>
+            <p>Voting closes on <strong>30 September 2026</strong>. After that, results will be locked and shared.</p>
+            <p id="vote-status" class="vote-status"></p>
+          </div>
+
+          <div class="grid-2">
+            <!-- Date Vote -->
+            <div class="card form-card">
+              <h3>Preferred Weekend (December 2026)</h3>
+              <form id="date-vote-form">
+                <div class="radio-group vertical">
+                  <label class="radio">
+                    <input type="radio" name="date-option" value="dec5-6" required>
+                    <span><strong>5–6 December</strong><br><small>Saturday–Sunday</small></span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="date-option" value="dec12-13">
+                    <span><strong>12–13 December</strong><br><small>Saturday–Sunday</small></span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="date-option" value="dec19-20">
+                    <span><strong>19–20 December</strong><br><small>Saturday–Sunday</small></span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="date-option" value="dec26-27">
+                    <span><strong>26–27 December</strong><br><small>Saturday–Sunday (post-Christmas)</small></span>
+                  </label>
+                </div>
+                <div class="form-group" style="margin-top:1rem">
+                  <label for="date-voter">Your Name *</label>
+                  <input type="text" id="date-voter" required placeholder="So we can count unique votes">
+                </div>
+                <button type="submit" class="btn primary full" id="date-vote-btn">Submit Date Vote</button>
+              </form>
+              <div id="date-results" class="results hidden">
+                <h4>Current Tallies</h4>
+                <div id="date-tallies"></div>
+              </div>
+            </div>
+
+            <!-- Location Vote -->
+            <div class="card form-card">
+              <h3>Evening Format</h3>
+              <p class="muted small">Morning session will be at the school in any case (subject to availability).</p>
+              <form id="loc-vote-form">
+                <div class="radio-group vertical">
+                  <label class="radio">
+                    <input type="radio" name="loc-option" value="resort" required>
+                    <span><strong>Resort in Chennai</strong><br><small>Casual catch-up, dinner, music / DJ & dance</small></span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="loc-option" value="cruise">
+                    <span><strong>Short Ocean Cruise</strong><br><small>From Chennai – evening cruise experience</small></span>
+                  </label>
+                </div>
+                <div class="form-group" style="margin-top:1rem">
+                  <label for="loc-voter">Your Name *</label>
+                  <input type="text" id="loc-voter" required placeholder="So we can count unique votes">
+                </div>
+                <button type="submit" class="btn primary full" id="loc-vote-btn">Submit Location Vote</button>
+              </form>
+              <div id="loc-results" class="results hidden">
+                <h4>Current Tallies</h4>
+                <div id="loc-tallies"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEMORIES / COLLAGE -->
+      <section id="section-memories" class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Class Collage & Memories</h2>
+            <p>Share a quick memory and a photo (yourself, family, or an old school picture). It will appear in the collage below for everyone.</p>
+          </div>
+
+          <form id="memory-form" class="card form-card narrow-form">
+            <div class="form-group">
+              <label for="mem-name">Your Name *</label>
+              <input type="text" id="mem-name" required>
+            </div>
+            <div class="form-group">
+              <label for="mem-text">Quick Memory *</label>
+              <textarea id="mem-text" rows="3" required placeholder="A short story, a funny incident, a teacher you still remember..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="mem-photo">Photo *</label>
+              <input type="file" id="mem-photo" accept="image/*" required>
+              <p class="hint">Will be resized automatically. Prefer a clear, personal or nostalgic photo.</p>
+            </div>
+            <button type="submit" class="btn primary full">Add to Collage</button>
+            <p id="mem-success" class="success hidden">Memory added! Scroll down to see the collage.</p>
+          </form>
+
+          <div class="collage-header">
+            <h3>Our Collage</h3>
+            <p class="muted" id="collage-count">0 memories shared</p>
+          </div>
+          <div id="collage" class="collage-grid">
+            <!-- dynamically filled -->
+          </div>
+        </div>
+      </section>
+
+      <!-- VOLUNTEERS -->
+      <section id="section-volunteers" class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Volunteer Roles</h2>
+            <p>Self-nominate for one of the three key roles. A photo thumbnail of volunteers will be shown so the group can see who is stepping up.</p>
+          </div>
+
+          <div class="roles-intro grid-3">
+            <div class="role-card">
+              <div class="role-icon">🏫</div>
+              <h4>Morning Event Coordinator</h4>
+              <p>Connects with teachers & staff to confirm space and teacher participation for the 30-year reunion, including catering for lunch at school.</p>
+            </div>
+            <div class="role-card">
+              <div class="role-icon">🎉</div>
+              <h4>Evening Event Coordinator</h4>
+              <p>Identifies a resort with event space for casual catch-up, dinner, party, dance / music / DJ, or arranges the cruise option.</p>
+            </div>
+            <div class="role-card">
+              <div class="role-icon">💰</div>
+              <h4>Treasurer</h4>
+              <p>Collects contributions from in-person participants, accepts donations from virtual participants, pays expenses, and purchases memorabilia.</p>
+            </div>
+          </div>
+
+          <form id="volunteer-form" class="card form-card narrow-form">
+            <div class="form-group">
+              <label for="vol-name">Your Name *</label>
+              <input type="text" id="vol-name" required>
+            </div>
+            <div class="form-group">
+              <label for="vol-email">Email *</label>
+              <input type="email" id="vol-email" required>
+            </div>
+            <div class="form-group">
+              <label>Role *</label>
+              <div class="radio-group vertical">
+                <label class="radio">
+                  <input type="radio" name="vol-role" value="morning" required>
+                  <span>Morning Event Coordinator</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="vol-role" value="evening">
+                  <span>Evening Event Coordinator</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="vol-role" value="treasurer">
+                  <span>Treasurer</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="vol-photo">Your Photo (for thumbnail) *</label>
+              <input type="file" id="vol-photo" accept="image/*" required>
+            </div>
+            <div class="form-group">
+              <label for="vol-note">Short note (optional)</label>
+              <textarea id="vol-note" rows="2" placeholder="Why you’d like to help / any relevant experience"></textarea>
+            </div>
+            <button type="submit" class="btn primary full">Nominate Myself</button>
+            <p id="vol-success" class="success hidden">Thank you for volunteering!</p>
+          </form>
+
+          <div class="volunteers-display">
+            <h3>Current Volunteers</h3>
+            <div id="volunteers-list" class="volunteers-grid">
+              <p class="muted">No volunteers yet. Be the first to step up!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>P.S. Senior Secondary School · Class of 1996 · Private Reunion Site</p>
+        <p class="small">Data is stored locally in your browser for this private demo. For production multi-user use, host with a backend (Firebase, Supabase, or shared Google Sheet).</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
