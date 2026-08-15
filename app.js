@@ -2,7 +2,7 @@
   PS Senior Secondary School – Class of 1996 Reunion App
   Connected to Google Sheets + Google Drive for photos.
   ============================================================ */
-const PASSWORD = 'NerMaru1996';
+const PASSWORD = 'NeRmaHru96';
 const CUTOFF = new Date('2026-09-30T23:59:59+05:30'); // IST
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTtfj4jDY68IQpNSrVE0jv0RSyilPU0mO5X_XY_3FmOqfqV0BA9P8TLi74XBkkVatMjg/exec";
 
