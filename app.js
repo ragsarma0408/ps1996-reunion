@@ -3,7 +3,7 @@
    Client-side only (localStorage). For real multi-user deployment
    replace storage with Firebase / Supabase / a simple backend.
    ============================================================ */
-
+//const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_LONG_ID_HERE/exec";
 const PASSWORD = 'Batch1996';
 const CUTOFF = new Date('2026-09-30T23:59:59+05:30'); // IST
 
